@@ -66,21 +66,16 @@ int main() {
     //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
 
-    ll n; readin(n);
-    vector<ll> v(n);
-
-    for(auto& x : v) readin(x);
-
     ll ans = 0;
-    for(int i = 0; i < sz(v); i += 2) {
-        ans += v[i + 1] - v[i];
+    ll n; readin(n);
+    while(n--) {
+        string str; readin(str);
+        ll fa = str.back() - '0';
+        str.erase(sz(str) - 1);
+        ans += pow(stoi(str), fa);
     }
 
-    if(n % 2 == 1) {
-        cout << "still running\n";
-    } else {
-        cout << ans << endl;
-    }
+    cout << ans << endl;
 
     return 0;
 }

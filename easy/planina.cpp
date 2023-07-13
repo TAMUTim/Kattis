@@ -67,20 +67,13 @@ int main() {
     //freopen("output.txt", "w", stdout);
 
     ll n; readin(n);
-    vector<ll> v(n);
 
-    for(auto& x : v) readin(x);
+    vector<ll> ans(16);
+    ans[0] = 4;
+    
+    fos(i, 1, sz(ans)) { ans[i] = pow(sqrt(ans[i - 1]) + sqrt(ans[i - 1]) - 1, 2); }
 
-    ll ans = 0;
-    for(int i = 0; i < sz(v); i += 2) {
-        ans += v[i + 1] - v[i];
-    }
-
-    if(n % 2 == 1) {
-        cout << "still running\n";
-    } else {
-        cout << ans << endl;
-    }
+    cout << ans[n] << endl;
 
     return 0;
 }

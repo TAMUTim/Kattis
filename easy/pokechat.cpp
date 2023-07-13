@@ -66,21 +66,22 @@ int main() {
     //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
 
-    ll n; readin(n);
-    vector<ll> v(n);
+    string str; getline(cin, str);
+    string code; getline(cin, code);
 
-    for(auto& x : v) readin(x);
+    string ans = "";
 
-    ll ans = 0;
-    for(int i = 0; i < sz(v); i += 2) {
-        ans += v[i + 1] - v[i];
+    for(int i = 0; i < sz(code); i += 3) {
+        string a = "";
+        a += code[i];
+        a += code[i + 1];
+        a += code[i + 2];
+
+        ll in = stoi(a);
+        ans += str[in - 1];
     }
 
-    if(n % 2 == 1) {
-        cout << "still running\n";
-    } else {
-        cout << ans << endl;
-    }
+    cout << ans << endl;
 
     return 0;
 }

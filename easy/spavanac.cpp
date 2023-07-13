@@ -66,21 +66,19 @@ int main() {
     //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
 
-    ll n; readin(n);
-    vector<ll> v(n);
+    ll h, m; readin(h, m);
 
-    for(auto& x : v) readin(x);
-
-    ll ans = 0;
-    for(int i = 0; i < sz(v); i += 2) {
-        ans += v[i + 1] - v[i];
+    m -= 45;
+    if(m < 0) {
+        h--;
+        m += 60;
     }
 
-    if(n % 2 == 1) {
-        cout << "still running\n";
-    } else {
-        cout << ans << endl;
+    if(h < 0) {
+        h += 24;
     }
+
+    cout << h << " " << m << endl;
 
     return 0;
 }
